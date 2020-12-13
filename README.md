@@ -1,14 +1,33 @@
-# Joe's Next.js Template/Boilerplate
+# Hungarian name day API
 
-I often end up using the same Next.js base in my projects, so I've decided to
-create a boilerplate to save time on the initial setup.
+**See this app live on the web (Hungarian):** https://nevnapok.vercel.app
 
-This boilerplate is a simple extension of the default `create-next-app` template
-with TypeScript and SCSS support added. It also adds some other stuff such as
-ESLint and a more refined directory/file structure.
+## Getting Started
+
+**Clone the repo:**
 
 ```sh
-npx create-next-app -e https://github.com/jozsefsallai/next-template
+git clone git@github.com:jozsefsallai/nevnapok-api.git
+cd nevnapok-api
+```
+
+**Install the dependencies:**
+
+```sh
+npm i -g yarn
+yarn
+```
+
+**Run the dev server:**
+
+```sh
+yarn dev
+```
+
+**Make sure your changes pass linting:**
+
+```sh
+yarn lint
 ```
 
 ## License

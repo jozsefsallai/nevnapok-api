@@ -1,0 +1,57 @@
+# Névnapok API
+
+A **Névnapok API** egy ingyenesen használható online API, amelynek segítségével
+lekérheted a jelenlegi napon vagy egy bizonyos napon levő névnaposokat, valamint
+egy bizonyos név névnapjainak listáját. A válasz JSON formátumú és egyszerű
+szerkezettel rendelkezik.
+
+## Endpoint-ok
+
+### `GET https://nevnapok.vercel.app/ma`
+
+A mai névnaposok listáját fogja visszatéríteni, az alábbi formátumban:
+
+```
+{
+  "names": [ "Bertold", "Éda", ... ]
+}
+```
+
+---
+
+### `GET https://nevnapok.vercel.app/nap/:honap-:nap`
+
+Egy bizonyos napon levő névnaposokat fogja visszatéríteni. A `:honap`, illetve
+`:nap` paraméterek 0-val kell kezdődjenek, ha egyjegyű hónapról/napról van szó.
+Például, ha a május 3-án levő névnaposokat akarjuk lekérni, a lekérési URL
+`/nap/05-03` lesz. A válasz az alábbi szerkezettel rendelkezik. Amennyiben a
+megadott dátum érvénytelen, a `names` tömb üres lesz.
+
+```
+{
+  "names": [ "Antonella", "Antónia", ... ]
+}
+```
+
+---
+
+### `GET https://nevnapok.vercel.app/nev/:nev`
+
+Egy bizonyos név névnapjait fogja visszatéríteni, pl: `/nev/József`. A válasz a
+következő szerkezettel rendelkezik. Amennyiben a név nem található az
+adatbázisban, a `namedays` tömb üres lesz.
+
+```
+{
+  "namedays": [ "03-17", "03-19", ... ]
+}
+```
+
+---
+
+## JavaScript modul
+
+A Névnapok API-t használhatod a [nevnapok][nevnapok-npm-link] JavaScript
+modullal is Node.js környezetben vagy a böngészőben.
+
+[nevnapok-npm-link]: https://www.npmjs.com/package/nevnapok
